@@ -1,6 +1,6 @@
 This was another pcap file which means we gotta use wireshark again. After opening it and i went through it and found some ICMP packets going back and forth. The amount of ICMP messeges that were sent was kind of suspicious and there was a 1 byte of data sent with with each ICMP requests making it highly suspicious. 
 
-![[susnetwork-1.png]]
+![susnetwork-1.png](https://github.com/dr4kali/Writeups/blob/c5d2e1bc6c47d22a204d67d094b953dabdc75ffa/Codefest-2024/Forensics/SusNetwork/susnetwork-1.png)
 
 So I used tshark to gather all that data sent through.
 ```
@@ -11,10 +11,10 @@ So I used tshark to gather all that data sent through.
 
 Each byte is mentioned twice since both ICMP request and reply contains it. So I removed the duplicated and pasted them cyberchef to decode them from hex.
 
-![[susnetwork-2.png]]
+![susnetwork-2.png](https://github.com/dr4kali/Writeups/blob/c5d2e1bc6c47d22a204d67d094b953dabdc75ffa/Codefest-2024/Forensics/SusNetwork/susnetwork-2.png)
 
 The decoded strings looks kind of looks like a base64 string. So i decided use base64 decoder on top of hex decoder.
 
-![[susnetwork-3.png]]
+![susnetwork-3.png](https://github.com/dr4kali/Writeups/blob/c5d2e1bc6c47d22a204d67d094b953dabdc75ffa/Codefest-2024/Forensics/SusNetwork/susnetwork-3.png)
 
 And Voila! We solved another mystery.
