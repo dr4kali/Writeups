@@ -32,7 +32,7 @@ Breakpoint 1 at 0x11e3
 ```
 
 You will something like this.
-![[secure_data-1.png]]
+![secure_data-1.png](https://github.com/dr4kali/Writeups/blob/c4af821c5d6dfa1ed394d05ae570a7f1c38bc08f/Codefest-2024/Reverse%20Engineering/Secure_data/secure_data-1.png)
 
 As you can see the secret_function is not called in the main or from anywhere. May be if we manually call it we could get the flag.
 the secret_function starts at 0x555555555159 so lets try calling it.
@@ -41,6 +41,6 @@ the secret_function starts at 0x555555555159 so lets try calling it.
 call ((void (*)())0x555555555159)()
 ```
 
-![[secure_data-2.png]]
+![secure_data-2.png](https://github.com/dr4kali/Writeups/blob/c4af821c5d6dfa1ed394d05ae570a7f1c38bc08f/Codefest-2024/Reverse%20Engineering/Secure_data/secure_data-2.png)
 
 And Boom we got another flag.
