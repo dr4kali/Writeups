@@ -7,14 +7,14 @@ function _0x2482(){const _0x2beee5=['fromCharCode','265488WdYeQx','table','sqrt'
 
 Well you can see that its impossible to understand anything from this. Good thing was I knew something called javascript obfuscating exist. So I pasted the code on online deobfuscater.
 
-![[JSecure-1.png]]
+![JSecure-1.png](https://github.com/dr4kali/Writeups/blob/3194502f62168de4b7d9311ed4db37d7f9178a20/Codefest-2024/Reverse%20Engineering/JSecure/JSecure-1.png)
 
 Now this is much more readable. We can see that it logs something to the console. So i created index.php and include the js file as a javascript file. Then I open up inspection and looked at what it logs in the console.
 
-![[JSecure-2.png]]
+![JSecure-2.png](https://github.com/dr4kali/Writeups/blob/3194502f62168de4b7d9311ed4db37d7f9178a20/Codefest-2024/Reverse%20Engineering/JSecure/JSecure-2.png)
 
 It prints a flag but its not readable. But you can see in y column, the numbers are seems to  be ascii codes so lets try to decode them as ascii letters.
 
-![[JSecure-3.png]]
+![JSecure-3.png](https://github.com/dr4kali/Writeups/blob/3194502f62168de4b7d9311ed4db37d7f9178a20/Codefest-2024/Reverse%20Engineering/JSecure/JSecure-3.png)
 
 And here we go. We found another flag.
