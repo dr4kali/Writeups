@@ -49,15 +49,15 @@ As you can see there are 2 interesting subdomains `internal-invoiceapp-dev` and 
 As port 80 is opened we can try to visit it on the browser. When we visit the initial web page it says that the website is under maintenance. We can also try visiting other subdomains. And interestingly `internal-invoiceapp-dev.webminds.local` lead us to invoice generating web page. 
 Now lets open burpsuite and generate invoice for ourselves to see how this works.
 
-![[webminds-1.png]]
+![webminds-1.png](https://github.com/dr4kali/Writeups/blob/7f4171ee26fa8cb0987d2c9455482afcadc0e119/Codefest-2024/FullPwn/Webminds/webminds-1.png)
 
 It generates the invoice and redirect us to `download.php` to download it. This is interesting because we can probably try to perform LFI to download system files.
 
-![[webminds-2.png]]
+![webminds-2.png](https://github.com/dr4kali/Writeups/blob/7f4171ee26fa8cb0987d2c9455482afcadc0e119/Codefest-2024/FullPwn/Webminds/webminds-2.png)
 
 Well as we can read files now, we can try to read any available database file or ssh keys. Since we don't know exact files names to read, we can starts with the ones we know such as `download.php`, `index.php`.  As there was nothing usefull on them we can try to bruteforce to find out available files on the server.  With a FUZZ scan for directory we can see that there is an `admin.php` file. Lets try reading it.
 
-![[webminds-3.png]]
+![webminds-3.png](https://github.com/dr4kali/Writeups/blob/7f4171ee26fa8cb0987d2c9455482afcadc0e119/Codefest-2024/FullPwn/Webminds/webminds-3.png)
 
 
 We have some creds now. We know that there is a user named marcus(read /etc/passwd). Lets try logging in as marcus with available creds.
